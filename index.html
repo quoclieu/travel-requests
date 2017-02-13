@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html ng-app='app' ng-cloak>
+
+<head>
+	<meta charset='utf-8'>
+	<title>Travel Request</title>
+
+	<link rel='stylesheet' type='text/css' href='stylesheets/style.css'>
+
+	<!-- Angular JS -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+	<script src='js/index.js'></script>
+
+</head>
+
+<body>
+	<div class='container'>
+		<form>
+			<h3 class='center'>Travel Request Form</h3>
+			<h4 class='row'>Please use this form to recieve approval for travel related activities</h4>
+
+			<div class='row'>
+				Are you submitting this request on behalf of someone else?
+				<div class='right'>
+					<input type='radio' name='request' onclick='javascript:ifBehalf();' id='behalfYes'>Yes
+					<input type='radio' name='request' onClick='javascript:ifBehalf();' id='behalfNo'>No
+				</div>
+			</div>
+
+			<div class='hidden row' id='search'>
+				Enter the employees user ID and select Search: 
+				<input class='margin10' type='text' name='empID'>
+				<button type='button'>Search</button>
+			</div>
+
+			<div class='hidden row' id='idTable'>
+				<table>
+					<tr>
+						<th>Involvement</th>
+						<th>First Name</th>
+						<th>Surname</th>
+						<th>Title</th>
+						<th>Employee ID</th>
+					</tr>
+
+					<tr>
+						<td>Recipient</td>
+						<td>Quoc</td>
+						<td>Lieu</td>
+						<td>2016 Summer Vacation</td>
+						<td>48388809</td>
+					</tr>
+
+					<tr>
+						<td>Manager</td>
+						<td>Kannan</td>
+						<td>Alagappan</td>
+						<td>Head of Software Engineering</td>
+						<td>47981221</td>
+					</tr>
+
+				</table>
+			</div>
+
+			<div class='hidden row' id='confirm'>
+				Confirm above details? <input type='checkbox' onclick='javascript:confirm();' id='confirmYes'>Yes
+			</div>
+
+			<div class='hidden' id='travelDetails'>
+				<strong class='row'>Proposed Dates of Travel:</strong>
+				<br>
+				<div class='note pad-left'>
+					Note: Economy is reimbursed for flights under 9 hours. Premium economy is reimbursed for flights over 9 hours. <strong>There is no reimbursements for business class.</strong>
+				</div>
+				<br>
+
+				<div class='note pad-left'>
+					All fields below are required
+				</div>
+				<br>
+
+				<div class='row'>
+					Departure:<input id='dateDepart' class='right' type='date'required>
+				</div>
+				<br>
+
+				<div class='row'>
+					Return:<input id='dateReturn' class='right' type='date' required>
+				</div>
+				<br>
+
+				<!--Default dates to todays date and limit it so cannot 
+				select days that have passed-->
+				<script type='text/javascript'>
+					limitDate('dateDepart');
+					limitDate('dateReturn');
+				</script>
+
+				<div class='row'>				
+						Travel Type:
+						<div class='right'>
+							<input type='radio' name='travelType' required>Plane
+							<input type='radio' name='travelType'>Car
+						</div>
+				</div>
+				<br>
+
+				<div class='row'>
+					Destination/s: <input class='right' type='text' name='destinations' required>
+				</div>
+				<br>
+
+				<div class='row'>
+					Purpose of travel(Business Justification):
+					<br>
+					<textarea rows='4' cols='40' required></textarea>
+				</div>
+				<br>
+
+				<div class='row'>
+					Travel to be funded by:
+					<div class='right'>
+						<input type='text' required/>
+					</div>
+					<div class='note'>
+						Opex/Capex(project name/WBS number tba)
+					</div>
+				</div>
+				<br>
+
+
+				<div ng-controller='costCtrl' id='costs'>
+
+					<strong class='row'>Costs:</strong>
+					
+					<div class='row'>
+						<br>
+						Air Fares:
+						<div class='right'>
+							$<input type='number' ng-model='air' placeholder='0'/>
+						</div>
+					</div>
+					<br>
+
+					<div class='row'>
+						Accomodation:
+						<div class='right'>
+							$<input type='number' ng-model='accom'/>
+						</div>
+					</div>
+					<br>
+
+					<div class='row'>
+						Meals:
+						<div class='right'>
+							$<input type='number' ng-model='meals'/>
+						</div>
+					</div>
+					<br>
+
+					<div class='row'>
+						Taxi Fares:
+						<div class='right'>
+							$<input type='number' ng-model='taxi'/>
+						</div>
+					</div>
+					<br>
+
+					<div class='row'>
+						Travel Allowance(if applicable):
+						<div class='right'>
+							$<input type='number' ng-model='extra'/>
+						</div>
+					</div>
+					<br>
+
+					<div class='row'>
+						<strong>Total: $</strong>{{ air+accom+meals+taxi+extra }}
+					</div>
+				</div>
+
+				<div class='center row'>
+					<input type='submit' value='Submit'>
+				</div>
+			</div>
+
+		</form>
+	</div>
+
+</body>
+
+</html>

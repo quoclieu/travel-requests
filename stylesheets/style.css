@@ -1,0 +1,86 @@
+body {
+  background-image: url(../img/Blue.png);
+  background-size: cover; }
+
+h4 {
+  margin: 0px; }
+
+.pad-left {
+  padding-left: 10px; }
+
+.center {
+  text-align: center; }
+
+.margin10 {
+  margin: 10px; }
+
+.right {
+  float: right; }
+
+.hidden {
+  display: none; }
+
+.container form {
+  width: 600px;
+  margin: 40px auto;
+  font-size: 12px;
+  font-family: Lucida Grande, Sans-serif, Arial, Helvetica;
+  background-color: white;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  padding: 10px; }
+  .container form .note {
+    color: red;
+    font-size: 10px; }
+  .container form table {
+    margin-bottom: 20px; }
+  .container form table, .container form th, .container form td {
+    border: solid 1px black;
+    border-collapse: collapse; }
+  .container form table td, .container form th {
+    padding: 5px; }
+  .container form input {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    height: 15px;
+    padding: 5px;
+    font-size: 12px; }
+  .container form textarea {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    resize: none;
+    font-family: Lucida Grande, Sans-serif, Arial, Helvetica;
+    padding: 10px; }
+  .container form .row {
+    padding: 10px; }
+  .container form input[type='submit'] {
+    height: 30px;
+    font-size: 12px;
+    border: none;
+    background-color: #87CEEB;
+    font-weight: bold;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px; }
+  .container form #costs {
+    width: 350px;
+    /* Gets rid of the input spinners(up and down arrows) */ }
+    .container form #costs input {
+      width: 40px;
+      text-align: right;
+      margin-top: -10px; }
+    .container form #costs input[type='number']::-webkit-inner-spin-button,
+    .container form #costs input[type='number']::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0; }
+
+/*# sourceMappingURL=style.css.map */
